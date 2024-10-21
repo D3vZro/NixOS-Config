@@ -1,0 +1,102 @@
+* {
+  border: none;
+  border-radius: 0;
+  font-family: FontAwesome, BitstromWera Nerd Font;
+  font-size: 11px;
+}
+
+/* Disable changes on hover */
+button:hover {
+  box-shadow: none;
+  text-shadow: none;
+  background: none;
+  transition: none;
+}
+
+window#waybar {
+  color: #eceff4;
+  background-color: #3b4252
+}
+
+.modules-left {
+  margin-left: 10px;
+}
+
+.modules-right {
+  margin-right: 5px;
+}
+
+#workspaces button {
+  background-color: #4c566a;
+  padding: 0.1em 5px;
+  margin: 0.5em 0px;
+}
+
+#workspaces button:hover {
+  color: #eceff4;
+}
+
+#workspaces button.visible {
+  background-color: #88C0D0;
+}
+
+#workspaces button.focused {
+  background-color: #88C0D0;
+}
+
+#workspaces button.urgent {
+  background-color: #bf616a;
+}
+
+#window {
+  padding: 0.1em 5px;
+  margin: 0.5em 10px;
+}
+
+#mode {
+  background-color: #81a1c1;
+  padding: 0.1em 5px;
+  margin: 0.5em 5px;
+}
+
+#mpris {
+  background-color: #4c566a;
+  padding: 0.1em 10px;
+  margin: 0.5em 5px;
+}
+
+#backlight {
+  background-color: #4c566a;
+  padding: 0.1em 10px;
+  margin: 0.5em 5px;
+}
+
+#battery {
+  background-color: #4c566a;
+  padding: 0.1em 10px;
+  margin: 0.5em 5px;
+}
+
+#battery.discharging {
+}
+
+#pulseaudio {
+  background-color: #4c566a;
+  padding: 0.1em 10px;
+  margin: 0.5em 5px;
+}
+
+#pulseaudio.muted {
+}
+
+#clock {
+  background-color: #4c566a;
+  padding: 0.1em 10px;
+  margin: 0.5em 5px;
+}
+
+#tray {
+  background-color: #4c566a;
+  padding: 0.1em 10px;
+  margin: 0.5em 5px;
+}

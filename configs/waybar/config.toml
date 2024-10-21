@@ -1,0 +1,28 @@
+# Config for workstyle
+#
+# Format:
+# "pattern" = "icon"
+#
+# The pattern will be used to match against the application name, class_id or WM_CLASS.
+# The icon will be used to represent that application.
+#
+# Note if multiple patterns are present in the same application name,
+# precedence is given in order of apparition in this file.
+
+"nvim" = ""
+"thunderbird" = ""
+"firefox" = ""
+"spotify" = ""
+"todoist" = ""
+"steam" = ""
+"signal" = "󰭹"
+"discord" = ""
+"zathura" = "󰈙"
+"code" = ""
+"jetbrains-datagrip" = ""
+"alacritty" = ""
+
+[other]
+fallback_icon = "?"
+deduplicate_icons = true
+separator = ": "

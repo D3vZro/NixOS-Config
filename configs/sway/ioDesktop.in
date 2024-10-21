@@ -1,0 +1,40 @@
+input * {
+    xkb_layout "de"
+    xkb_options "eurosign:e, caps:escape"
+}
+
+input type:keyboard {
+    repeat_delay 200
+    repeat_rate 30
+    xkb_numlock enabled
+}
+
+input type:pointer {
+  scroll_factor 2
+  accel_profile flat
+}
+
+
+output HDMI-A-1 {
+  position 0 0
+}
+
+output DVI-D-1 {
+  position 1920 0
+}
+
+workspace {
+  1 output HDMI-A-1
+  2 output HDMI-A-1
+  3 output HDMI-A-1
+  4 output HDMI-A-1
+  5 output HDMI-A-1
+  6 output HDMI-A-1
+  8 output HDMI-A-1
+  9 output DVI-D-1
+}
+
+seat * {
+    hide_cursor when-typing enable
+}
+

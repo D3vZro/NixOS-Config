@@ -1,0 +1,41 @@
+input * {
+    xkb_layout "de"
+    xkb_options "eurosign:e, caps:escape"
+}
+
+input type:keyboard {
+    repeat_delay 200
+    repeat_rate 30
+    xkb_numlock enabled
+}
+
+input type:touchpad {
+    tap enabled
+    drag enabled
+    dwt enabled
+    accel_profile flat
+}
+
+input type:pointer {
+  scroll_factor 2
+  accel_profile flat
+}
+
+output eDP-1 {
+  position 0 0
+}
+
+output HDMI-A-1 {
+  position 1920 0
+}
+
+workspace {
+  number 1 output eDP-1
+  number 2 output eDP-1
+  number 3 output eDP-1
+  number 4 output eDP-1
+  number 5 output eDP-1
+  number 6 output eDP-1
+  number 8 output eDP-1
+  number 9 output HDMI-A-1
+}

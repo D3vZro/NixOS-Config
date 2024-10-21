@@ -1,0 +1,54 @@
+# Import
+include ./keybindings
+include ./io
+
+# Background
+output * bg $WALLPAPER/wallpaper.png fill
+
+exec swayidle -w \
+         timeout 180 'swaylock -f -c 000000' \
+         timeout 360 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+         before-sleep 'swaylock -f -c 000000'
+
+# Window rules
+default_orientation auto
+mouse_warping output
+focus_follows_mouse no
+
+assign [class="Code"]         number 1
+assign [class="Spotify"]      number 6
+assign [class="Todoist"]      number 5
+assign [app_id="thunderbird"] number 7
+assign [class="discord"]      number 8
+
+# Styling
+default_border pixel 3
+smart_borders on
+smart_gaps off
+gaps outer 5
+gaps inner 5
+
+# Window class          Border  Background Text    Indicator
+client.focused          #5E81AC #5E81AC    #E5E9F0 #5E81AC
+client.focused_inactive #3B4252 #3B4252    #E5E9F0 #3B4252
+client.unfocused        #3B4252 #3B4252    #E5E9F0 #3B4252
+client.urgent           #BF616A #BF616A    #E5E9F0 #BF616A
+
+# Status Bar:
+bar {
+  swaybar_command waybar
+}
+
+# Autostart:
+exec nm-applet
+exec easyeffects --gapplication-service
+exec autotiling-rs
+exec gammastep -l geoclue2 -m wayland
+exec_always --no-startup-id workstyle &> /tmp/workstyle.log
+exec_always mako
+
+exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
+
+workspace number 1
+
+include @sysconfdir@/sway/config.d/*

@@ -1,0 +1,103 @@
+{
+  "layer": "top",
+  "position": "top",
+  "ipc": true,
+
+  "modules-left": [
+      "sway/workspaces",
+      "sway/window"
+  ],
+  "modules-center": [
+      "sway/mode"
+  ],
+  "modules-right": [
+    "mpris",
+    "backlight",
+    "battery",
+    "pulseaudio",
+    "clock",
+    "tray"
+  ],
+
+  "sway/workspaces": {
+    "all-outputs": true,
+    "disable-click": true,
+    "disable-scroll": true,
+
+    "format": "{icon}"
+  },
+
+  "sway/window": {
+    "format": "{app_id}",
+    "tooltip": false
+  },
+
+  "sway/mode": {
+    "format": "Modus: {}",
+    "tooltip": false
+  },
+
+  "mpris": {
+    "on-click": "",
+    "on-click-middle": "",
+    "on-click-right": "",
+    "tooltip-format": "",
+    "player": "spotify",
+
+    "dynamic-order": [
+      "artist",
+      "title"
+    ],
+
+    "format": "{status_icon} {dynamic}",
+    "status-icons": {
+      "playing": "",
+      "paused": "",
+      "stopped": ""
+    },
+
+    "ignored-players": [
+      "firefox"
+    ]
+  },
+
+  "backlight": {
+    "format": "󰃠 {percent}%",
+    "tooltip": false,
+    "on-scroll-up": "",
+    "on-scroll-down": ""
+  },
+
+  "battery": {
+    "tooltip": false,
+    "format-full": "󱟢 {capacity}%",
+    "format-discharging": "󰁾 {capacity}%",
+    "format-charging": "󰂇 {capacity}%"
+  },
+
+  "pulseaudio": {
+    "tooltip": false,
+    "ignored-sinks": [
+      "Easy Effects Sink"
+    ],
+
+    "format": "{icon} {volume}%",
+    "format-muted": "󰝟 Stumm",
+    "format-icons": {
+      "default": "󰕾",
+      "headphone": "󰋋",
+      "headset": "󰂰",
+      "alsa_output.pci-0000_03_00.1.hdmi-stereo-extra1": "󰍹"
+    }
+  },
+
+  "clock": {
+    "format": " {:%H:%M}",
+    "tooltip-format": "󰃭 {:%A, %d. %B %C%y}"
+  },
+
+  "tray": {
+    "icon-size": 16,
+    "spacing": 5
+  }
+}
