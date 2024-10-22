@@ -29,7 +29,8 @@
     };
   };
 
-  outputs = inputs@{ self,
+  outputs = {
+    self,
     nixpkgs,
     nixpkgs-stable,
     nixNeovim, 
@@ -58,7 +59,7 @@
 
             users.${username}.imports = [
               # Inputs
-              inputs.nixvim.homeManagerModules.nixvim
+              nixvim.homeManagerModules.nixvim
               spicetify-nix.homeManagerModules.default
               nix-index-database.hmModules.nix-index
 

@@ -24,8 +24,6 @@
   networking = {
     firewall = {
       enable = true;
-      # allowedTCPPorts = [ 57621 ];
-      # allowedUDPPorts = [ 5353 ];
     };
 
     networkmanager = {

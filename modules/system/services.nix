@@ -7,11 +7,6 @@ in {
     dconf.enable = true;
     seahorse.enable = true;
 
-    # ausweisapp = {
-    #   enable = true;
-    #   openFirewall = true;
-    # };
-
     gnupg = {
       dirmngr.enable = true;
 
@@ -31,21 +26,6 @@ in {
     blueman.enable = true;
     udisks2.enable = true; # Dependency of home-manager/services.udiskie
 
-    # postgresql = {
-    #   enable = true;
-
-    #   authentication = ''
-    #     local all all peer
-    #   '';
-    # };
-
-    # syncthing = {
-    #   enable = true;
-    #   user = username;
-    #   openDefaultPorts = true;
-    #   dataDir = "/home/${username}/.syncthing";
-    # };
-
     gnome = {
       gnome-keyring.enable = true;
       gnome-online-accounts.enable = true;
@@ -55,17 +35,6 @@ in {
       enable = true;
       allowSFTP = true;
     };
-
-    # printing = {
-    #   enable = true;
-    #   browsing = true;
-    #   drivers = with pkgs; [ epson-escpr ];
-    # };
-
-    # avahi = {
-    #   enable = true;
-    #   nssmdns4 = true;
-    # };
 
     pipewire = {
       enable = true;

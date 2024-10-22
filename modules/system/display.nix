@@ -3,7 +3,8 @@
 let
   inherit (lib) concatStringsSep getExe;
   greeter = getExe pkgs.greetd.tuigreet;
-  systemSessions = config.services.displayManager.sessionData.desktops;
+  # Might be useful for some kinds of desktop
+  # systemSessions = config.services.displayManager.sessionData.desktops;
 in {
   services = {
     greetd = {

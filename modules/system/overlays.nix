@@ -4,6 +4,7 @@
   nix.package = pkgs.nix;
 
   nixpkgs.overlays = [
+    # Getting a fresh sway
     # (final: prev: {
     #   sway = prev.sway.overrideAttrs (old: {
     #     version = "1.10";
@@ -17,6 +18,7 @@
     #   });
     # })
 
+    # Inlcude a Patch
     # (final: prev: {
     #   nix = prev.nix.overrideAttrs (previousAttrs: {
     #     patches = previousAttrs.patches ++ [../../configs/patch/fix_nix.patch];
