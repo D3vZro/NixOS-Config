@@ -16,6 +16,7 @@
     cpu.amd.updateMicrocode = true;
 
     nvidia = {
+      package = config.boot.kernelPackages.nvidiaPackages.beta;
       modesetting.enable = true;
       open = false;
       nvidiaSettings = false;
