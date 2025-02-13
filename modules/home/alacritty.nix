@@ -1,4 +1,9 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 {
   programs.alacritty = {
@@ -25,14 +30,14 @@
         };
 
         padding = {
-          x = 10;
-          y = 10;
+          x = 8;
+          y = 8;
         };
       };
 
       font = {
-        size = 8.5;
-        
+        size = 9.5;
+
         normal.family = "JetBrains Mono";
         bold.family = "JetBrains Mono";
         italic.family = "JetBrains Mono";
@@ -40,7 +45,7 @@
       };
 
       # Nord colorscheme, see https://github.com/arcticicestudio/nord-alacritty
-      colors = { 
+      colors = {
         primary = {
           background = "#2e3440";
           foreground = "#d8dee9";

@@ -1,4 +1,9 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 {
   imports = [
@@ -23,7 +28,6 @@
 
       settings = {
         image = "$WALLPAPER/wallpaper.png";
-        no-unlock-indicator = true;
       };
     };
   };
@@ -33,11 +37,13 @@
     "sway/keybindings".source = ../../configs/sway/keybindings.in;
     "sway/io".source = ../../configs/sway/ioNotebook.in;
     "waybar/config".source = ../../configs/waybar/config.json;
+    "waybar/modules".source = ../../configs/waybar/modules.json;
     "waybar/style.css".source = ../../configs/waybar/style.css;
     "workstyle/config.toml".source = ../../configs/waybar/config.toml;
   };
 
   home.packages = with pkgs; [
+    swayidle
     autotiling-rs
     workstyle
   ];

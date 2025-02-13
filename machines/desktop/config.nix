@@ -1,4 +1,10 @@
-{ config, pkgs, lib, username, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  username,
+  ...
+}:
 
 {
   # Name
@@ -7,6 +13,7 @@
   # Desktop
   home-manager.users.${username} = {
     home.sessionVariables.WLR_RENDERER = lib.mkForce "vulkan";
+    xdg.configFile."sway/io".source = lib.mkForce ../../configs/sway/ioDesktop.in;
   };
 
   # Hardware
@@ -18,7 +25,7 @@
     nvidia = {
       package = config.boot.kernelPackages.nvidiaPackages.beta;
       modesetting.enable = true;
-      open = false;
+      open = true;
       nvidiaSettings = false;
       powerManagement.enable = false;
     };
@@ -36,6 +43,11 @@
     };
   };
 
+  powerManagement = {
+    enable = true;
+    cpuFreqGovernor = "performance";
+  };
+
   environment = {
     sessionVariables = {
       WLR_DRM_NO_ATOMIC = "1";
@@ -47,6 +59,7 @@
 
     systemPackages = with pkgs; [
       virt-manager
+      vulkan-validation-layers
     ];
   };
 }

@@ -1,4 +1,10 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  zenBrowser,
+  ...
+}:
 
 {
   nixpkgs.config.allowUnfree = true;
@@ -23,12 +29,8 @@
     fontDir.enable = true;
 
     packages = with pkgs; [
-      (nerdfonts.override {
-        fonts = [
-          "BitstreamVeraSansMono"
-          "NerdFontsSymbolsOnly"
-        ];
-      })
+      nerd-fonts.symbols-only
+      nerd-fonts.bitstream-vera-sans-mono
       corefonts
       liberation_ttf # Fixes unity games
       font-awesome
@@ -40,38 +42,50 @@
   };
 
   programs = {
-    # steam.enable = true;
+    steam.enable = true;
     nano.enable = false; # Nano is cringe
+
+    nh = {
+      enable = true;
+    };
   };
 
-  # Bare minimum
   environment.systemPackages = with pkgs; [
+    # Warning: Out-of-tree
+    zenBrowser
+
+    bat
+    bottom
     btop
     easyeffects
-    firefox
+    fd
     gammastep
     haruna
+    imv
     killall
+    libreoffice
+    libsForQt5.okular
     mono
     neofetch
     networkmanagerapplet
-    nix-index
     nix-output-monitor
     pamixer
+    helvum
     pavucontrol
     playerctl
     polkit_gnome
     pulseaudio
     ranger
+    ripgrep
     tealdeer
+    tree
+    vesktop
     viewnior
+    waypipe
     wget
     wl-clipboard
     xfce.thunar
     zenity
-
-    # Neovim external depends
-    ripgrep
-    fd
+    zotero
   ];
 }

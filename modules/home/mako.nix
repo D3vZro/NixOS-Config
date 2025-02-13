@@ -1,4 +1,9 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 {
   services.mako = {
@@ -26,7 +31,6 @@
     borderRadius = 2;
     borderSize = 3;
 
-    extraConfig = ''
-    '';
+    extraConfig = '''';
   };
 }

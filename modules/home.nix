@@ -1,10 +1,16 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 {
   imports = [
     ./home/alacritty.nix
     ./home/editor.nix
     ./home/git.nix
+    ./home/glance.nix
     ./home/rofi.nix
     ./home/shell.nix
     ./home/spotify.nix
@@ -14,7 +20,7 @@
 
   home.keyboard = null;
   home.stateVersion = "22.05";
-  home.language.base = "de";
+  home.language.base = "de_DE.UTF-8";
 
   qt = {
     enable = true;
@@ -23,7 +29,22 @@
 
   xdg = {
     enable = true; # Enable xdg explicitly
-    userDirs.enable = true;
+    mime.enable = true;
+
+    # German localisation
+    userDirs = {
+      enable = true;
+      createDirectories = true;
+
+      desktop = "${config.home.homeDirectory}/Desktop";
+      documents = "${config.home.homeDirectory}/Dokumente";
+      download = "${config.home.homeDirectory}/Downloads";
+      music = "${config.home.homeDirectory}/Musik";
+      pictures = "${config.home.homeDirectory}/Bilder";
+      publicShare = "${config.home.homeDirectory}/Öffentlich";
+      templates = "${config.home.homeDirectory}/Vorlagen";
+      videos = "${config.home.homeDirectory}/Videos";
+    };
   };
 
   home.pointerCursor = {
@@ -48,8 +69,8 @@
     };
 
     iconTheme = {
-      package = pkgs.luna-icons;
-      name = "Luna-Dark";
+      package = pkgs.papirus-nord;
+      name = "Papirus-Dark";
     };
   };
 
@@ -70,12 +91,15 @@
 
     gnome-keyring = {
       enable = true;
-      components = ["secrets" "pkcs11" "ssh"];
+      components = [
+        "secrets"
+        "pkcs11"
+      ];
     };
 
     gpg-agent = {
       enable = true;
-      enableSshSupport = true;
+      # enableSshSupport = false;
     };
   };
 }

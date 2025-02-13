@@ -1,7 +1,14 @@
-{ config, pkgs, lib, spicetify-nix, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  spicetify-nix,
+  ...
+}:
 let
   spicePkgs = spicetify-nix.legacyPackages.${pkgs.system};
-in {
+in
+{
   programs.spicetify = {
     enable = true;
     theme = spicePkgs.themes.sleek;

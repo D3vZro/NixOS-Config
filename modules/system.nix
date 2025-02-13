@@ -1,4 +1,10 @@
-{ config, pkgs, lib, username, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  username,
+  ...
+}:
 
 {
   imports = [
@@ -9,21 +15,33 @@
     ./system/display.nix
   ];
 
-  home-manager.users.${username} = { config, pkgs, lib, ... }: {
-    imports = [ ./home.nix ];
-  };
+  home-manager.users.${username} =
+    {
+      config,
+      pkgs,
+      lib,
+      ...
+    }:
+    {
+      imports = [ ./home.nix ];
+    };
 
   i18n.defaultLocale = "de_DE.UTF-8";
   system.stateVersion = "22.05";
 
   time = {
     timeZone = "Europe/Berlin";
-    hardwareClockInLocalTime = true;
+    hardwareClockInLocalTime = false;
   };
+
+  # Speed up boot times
+  systemd.network.wait-online.enable = false;
 
   networking = {
     firewall = {
       enable = true;
+      allowedTCPPorts = [ 57621 ];
+      allowedUDPPorts = [ 5353 ];
     };
 
     networkmanager = {

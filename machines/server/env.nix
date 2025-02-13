@@ -1,6 +1,7 @@
 {
   programs.direnv.enable = true;
   environment.pathsToLink = [ "/share/zsh" ];
+  programs.nh.enable = true;
 
   console = {
     font = "Lat2-Terminus16";
@@ -27,7 +28,7 @@
     g-p = "git pull";
     g-ca = "git commit -a";
 
-    fl-update= "git pull && nix flake update";
+    fl-update = "git pull && nix flake update";
     n-d = "nix develop";
 
     os-config = "cd ~/.nix/";

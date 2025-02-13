@@ -1,3 +1,11 @@
+set {
+    $mod Mod4
+}
+
+bindsym {
+    $mod+p output eDP-1 toggle
+}
+
 input * {
     xkb_layout "de"
     xkb_options "eurosign:e, caps:escape"
@@ -9,33 +17,57 @@ input type:keyboard {
     xkb_numlock enabled
 }
 
+# Touchpad
 input type:touchpad {
     tap enabled
     drag enabled
+    drag_lock enabled
     dwt enabled
     accel_profile flat
+    scroll_factor 1.5
 }
 
+# Mouse
 input type:pointer {
   scroll_factor 2
   accel_profile flat
 }
 
 output eDP-1 {
+  mode 2256x1504
   position 0 0
+  scale 1
 }
 
-output HDMI-A-1 {
-  position 1920 0
+output DP-4 {
+  mode 1920x1080
+  position 2256 0
+  scale 1
 }
 
 workspace {
-  number 1 output eDP-1
-  number 2 output eDP-1
-  number 3 output eDP-1
-  number 4 output eDP-1
-  number 5 output eDP-1
-  number 6 output eDP-1
-  number 8 output eDP-1
-  number 9 output HDMI-A-1
+  number 1
+  number 2
+  number 3
+  number 4
+  number 5
+  number 6
+  number 8
+  number 9
+}
+
+workspace {
+  1 output eDP-1
+  2 output eDP-1
+  3 output eDP-1
+  4 output eDP-1
+  5 output eDP-1
+  6 output eDP-1
+  8 output eDP-1
+  9 output DP-4
+}
+
+seat * {
+    hide_cursor 2000
+    # pointer_constraint enable
 }

@@ -1,14 +1,18 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 {
   nix.package = pkgs.nix;
 
   nixpkgs.overlays = [
-    # Getting a fresh sway
     # (final: prev: {
     #   sway = prev.sway.overrideAttrs (old: {
     #     version = "1.10";
-    #     
+    #
     #     src = prev.fetchFromGitHub {
     #       owner = "swaywm";
     #       repo = "sway";
@@ -18,7 +22,6 @@
     #   });
     # })
 
-    # Inlcude a Patch
     # (final: prev: {
     #   nix = prev.nix.overrideAttrs (previousAttrs: {
     #     patches = previousAttrs.patches ++ [../../configs/patch/fix_nix.patch];

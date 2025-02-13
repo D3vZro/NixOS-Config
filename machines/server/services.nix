@@ -1,4 +1,4 @@
-{pkgs, ...}:
+{ pkgs, ... }:
 
 {
   networking = {
@@ -6,13 +6,24 @@
 
     firewall = {
       enable = true;
-      allowedUDPPorts = [ 53 80 3000 ];
-      allowedTCPPorts = [ 53 80 3000 ];
+      allowedUDPPorts = [
+        53
+        80
+        3000
+      ];
+      allowedTCPPorts = [
+        53
+        80
+        3000
+      ];
     };
   };
 
   services = {
-    openssh.enable = true;
+    openssh = {
+      enable = true;
+      settings.PasswordAuthentication = false;
+    };
 
     adguardhome = {
       enable = true;

@@ -14,13 +14,23 @@ input type:pointer {
   accel_profile flat
 }
 
-
 output HDMI-A-1 {
   position 0 0
 }
 
 output DVI-D-1 {
   position 1920 0
+}
+
+workspace {
+  number 1
+  number 2
+  number 3
+  number 4
+  number 5
+  number 6
+  number 8
+  number 9
 }
 
 workspace {
@@ -35,6 +45,7 @@ workspace {
 }
 
 seat * {
-    hide_cursor when-typing enable
+    hide_cursor 2000
+    pointer_constraint enable
 }
 

@@ -1,7 +1,11 @@
-{
+[{
+  "include": [ "~/.config/waybar/modules" ],
+
+  "name": "notebook-main",
   "layer": "top",
   "position": "top",
   "ipc": true,
+  "output": "eDP-1",
 
   "modules-left": [
       "sway/workspaces",
@@ -17,87 +21,64 @@
     "pulseaudio",
     "clock",
     "tray"
+  ]
+}, {
+  "include": [ "~/.config/waybar/modules" ],
+
+  "name": "notebook-secondary",
+  "layer": "top",
+  "position": "top",
+  "ipc": true,
+  "output": "DP-4",
+
+  "modules-left": [
+    "mpris"
   ],
+  "modules-center": [
+  ],
+  "modules-right": [
+    "clock"
+  ]
+}, {
+  "include": [ "~/.config/waybar/modules" ],
 
-  "sway/workspaces": {
-    "all-outputs": true,
-    "disable-click": true,
-    "disable-scroll": true,
+  "name": "desktop-main",
+  "layer": "top",
+  "position": "top",
+  "ipc": true,
+  "output": "HDMI-A-1",
 
-    "format": "{icon}"
-  },
+  "modules-left": [
+      "sway/workspaces",
+      "sway/window"
+  ],
+  "modules-center": [
+      "sway/mode"
+  ],
+  "modules-right": [
+    "mpris",
+    "backlight",
+    "battery",
+    "pulseaudio",
+    "clock",
+    "tray"
+  ]
 
-  "sway/window": {
-    "format": "{app_id}",
-    "tooltip": false
-  },
+}, {
+  "include": [ "~/.config/waybar/modules" ],
 
-  "sway/mode": {
-    "format": "Modus: {}",
-    "tooltip": false
-  },
+  "name": "desktop-secondary",
+  "layer": "top",
+  "position": "top",
+  "ipc": true,
+  "output": "DVI-D-1",
 
-  "mpris": {
-    "on-click": "",
-    "on-click-middle": "",
-    "on-click-right": "",
-    "tooltip-format": "",
-    "player": "spotify",
-
-    "dynamic-order": [
-      "artist",
-      "title"
-    ],
-
-    "format": "{status_icon} {dynamic}",
-    "status-icons": {
-      "playing": "",
-      "paused": "",
-      "stopped": ""
-    },
-
-    "ignored-players": [
-      "firefox"
-    ]
-  },
-
-  "backlight": {
-    "format": "󰃠 {percent}%",
-    "tooltip": false,
-    "on-scroll-up": "",
-    "on-scroll-down": ""
-  },
-
-  "battery": {
-    "tooltip": false,
-    "format-full": "󱟢 {capacity}%",
-    "format-discharging": "󰁾 {capacity}%",
-    "format-charging": "󰂇 {capacity}%"
-  },
-
-  "pulseaudio": {
-    "tooltip": false,
-    "ignored-sinks": [
-      "Easy Effects Sink"
-    ],
-
-    "format": "{icon} {volume}%",
-    "format-muted": "󰝟 Stumm",
-    "format-icons": {
-      "default": "󰕾",
-      "headphone": "󰋋",
-      "headset": "󰂰",
-      "alsa_output.pci-0000_03_00.1.hdmi-stereo-extra1": "󰍹"
-    }
-  },
-
-  "clock": {
-    "format": " {:%H:%M}",
-    "tooltip-format": "󰃭 {:%A, %d. %B %C%y}"
-  },
-
-  "tray": {
-    "icon-size": 16,
-    "spacing": 5
-  }
-}
+  "modules-left": [
+    "mpris"
+  ],
+  "modules-center": [
+  ],
+  "modules-right": [
+    "clock"
+  ]
+}]

@@ -1,12 +1,18 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 {
   programs = {
-    nix-index-database.comma.enable = true;
-
     eza = {
       enable = true;
+      colors = "auto";
+      icons = "auto";
       git = true;
+      enableZshIntegration = true;
     };
 
     starship = {
@@ -51,6 +57,11 @@
           format = ''([\[$all_status$ahead_behind\]]($style))'';
         };
 
+        cmake = {
+          symbol = " ";
+          format = ''via [$symbol($version )]($style)'';
+        };
+
         nix_shell = {
           symbol = "󱄅 ";
           format = ''\[[$symbol$state(\($name\))]($style)\]'';
@@ -63,7 +74,7 @@
         time = {
           disabled = false;
           format = ''\[[$time]($style)\]'';
-         };
+        };
       };
     };
   };

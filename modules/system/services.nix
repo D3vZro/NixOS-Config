@@ -1,8 +1,14 @@
-{ config, pkgs, lib, username, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  username,
+  ...
+}:
 let
   inherit (pkgs) writeText;
-in {
-
+in
+{
   programs = {
     dconf.enable = true;
     seahorse.enable = true;
@@ -10,6 +16,7 @@ in {
     gnupg = {
       dirmngr.enable = true;
 
+      # Enables a GUI for authentication
       agent = {
         enable = true;
         enableSSHSupport = true;
@@ -22,7 +29,6 @@ in {
   services = {
     fstrim.enable = true;
     acpid.enable = true;
-    geoclue2.enable = true;
     blueman.enable = true;
     udisks2.enable = true; # Dependency of home-manager/services.udiskie
 
@@ -45,6 +51,14 @@ in {
 
       alsa.enable = true;
       alsa.support32Bit = true;
+
+      extraConfig.pipewire = {
+        "10-clock-rate" = {
+          "context.properties" = {
+            "default.clock.rate" = 192000;
+          };
+        };
+      };
     };
   };
 }

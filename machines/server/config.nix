@@ -1,6 +1,11 @@
-{pkgs, username, ...}:
+{ pkgs, username, ... }:
 
 {
+  imports = [
+    ./services.nix
+    ./env.nix
+  ];
+
   networking.hostName = "nix-server";
 
   hardware.enableRedistributableFirmware = true;
@@ -66,4 +71,19 @@
     neovim
     nix-output-monitor
   ];
+
+  # Remote builder
+  nix.distributedBuilds = true;
+  nix.settings.builders-use-substitutes = true;
+
+  # Create a fitting key in /root/.ssh first!
+  # nix.buildMachines = [
+  #   {
+  #     hostName = "nix-notebook";
+  #     sshUser = "builder";
+  #     sshKey = "/root/.ssh/builder";
+  #     system = pkgs.stdenv.hostPlatform.system;
+  #     supportedFeatures = [ "nixos-test" "big-parallel" "kvm" ];
+  #   }
+  # ];
 }

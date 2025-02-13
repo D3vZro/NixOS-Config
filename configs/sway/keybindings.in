@@ -15,7 +15,7 @@ workspace_auto_back_and_forth no
 bindsym $mod+Return exec $term
 bindsym $mod+c kill
 bindsym $mod+Backspace exec rofi -show drun
-bindsym $mod+p exec spotify; exec discord; exec thunderbird
+bindsym $mod+b exec spotify; exec vesktop; exec thunderbird
 
 # Reload/exit sway
 bindsym $mod+Shift+r reload
@@ -59,7 +59,8 @@ bindsym {
     $mod+Shift+$up move up
     $mod+Shift+$right move right
 }
-bindsym $mod+a focus parent
+
+# Workspace Switch with mouse sidewheel
 bindsym --whole-window {
   $mod+button7 workspace next
   $mod+button6 workspace prev
@@ -125,9 +126,5 @@ bindsym $mod+minus scratchpad show
 bindgesture {
     swipe:3:right workspace next
     swipe:3:left workspace prev
+    --exact swipe:4:down exec 'systemctl suspend && swaylock'
 }
-
-# State changes
-# bindswitch {
-#     lid:on exec swaylock
-# }

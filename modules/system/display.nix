@@ -1,11 +1,16 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 let
   inherit (lib) concatStringsSep getExe;
   greeter = getExe pkgs.greetd.tuigreet;
-  # Might be useful for some kinds of desktop
-  # systemSessions = config.services.displayManager.sessionData.desktops;
-in {
+  systemSessions = config.services.displayManager.sessionData.desktops;
+in
+{
   services = {
     greetd = {
       enable = true;
@@ -16,6 +21,7 @@ in {
         default_session = {
           command = concatStringsSep " " [
             greeter
+            "--asterisks"
             "--remember"
             "--time"
             "--cmd '${pkgs.sway}/bin/sway --unsupported-gpu'"
