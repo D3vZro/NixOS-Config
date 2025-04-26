@@ -15,6 +15,13 @@
   # Name
   networking.hostName = "nix-notebook";
 
+  # Desktop
+  home-manager.users.${username} = {
+    xdg.configFile."sway/workspace" = {
+      source = ../../configs/sway/notebook/workspace.in;
+    };
+  };
+
   # Hardware
   services.xserver.videoDrivers = [ "amdgpu" ];
   hardware.cpu.amd.updateMicrocode = true;
@@ -38,6 +45,20 @@
 
   networking.networkmanager.wifi = {
     powersave = false;
+  };
+
+  # Use device as remote builder
+  users.groups.builder = {};
+  nix.settings.trusted-users = [ "builder" ];
+
+  users.users.builder = {
+    isNormalUser = true;
+    createHome = false;
+    group = "builder";
+
+    openssh.authorizedKeys.keys = [
+      # Add ssh key from requesting device
+    ];
   };
 
   powerManagement = {

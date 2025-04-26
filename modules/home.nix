@@ -10,7 +10,6 @@
     ./home/alacritty.nix
     ./home/editor.nix
     ./home/git.nix
-    ./home/glance.nix
     ./home/rofi.nix
     ./home/shell.nix
     ./home/spotify.nix
@@ -31,7 +30,6 @@
     enable = true; # Enable xdg explicitly
     mime.enable = true;
 
-    # German localisation
     userDirs = {
       enable = true;
       createDirectories = true;

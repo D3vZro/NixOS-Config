@@ -34,7 +34,6 @@
     hardwareClockInLocalTime = false;
   };
 
-  # Speed up boot times
   systemd.network.wait-online.enable = false;
 
   networking = {
@@ -53,6 +52,14 @@
         networkmanager-openconnect
       ];
     };
+  };
+
+  programs.nix-ld = {
+    enable = true;
+
+    libraries = with pkgs; [
+      # Add libraries for unpatched binaries
+    ];
   };
 
   security = {

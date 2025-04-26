@@ -32,11 +32,12 @@
   "output": "DP-4",
 
   "modules-left": [
-    "mpris"
   ],
   "modules-center": [
   ],
   "modules-right": [
+    "mpris",
+    "pulseaudio",
     "clock"
   ]
 }, {
@@ -46,7 +47,7 @@
   "layer": "top",
   "position": "top",
   "ipc": true,
-  "output": "HDMI-A-1",
+  "output": "DP-1",
 
   "modules-left": [
       "sway/workspaces",
@@ -71,14 +72,15 @@
   "layer": "top",
   "position": "top",
   "ipc": true,
-  "output": "DVI-D-1",
+  "output": "HDMI-A-1",
 
   "modules-left": [
-    "mpris"
   ],
   "modules-center": [
   ],
   "modules-right": [
+    "mpris",
+    "pulseaudio",
     "clock"
   ]
 }]

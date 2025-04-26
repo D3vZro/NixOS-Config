@@ -1,4 +1,5 @@
 {
+  nixpkgs.config.allowUnfree = true;
   programs.direnv.enable = true;
   environment.pathsToLink = [ "/share/zsh" ];
   programs.nh.enable = true;

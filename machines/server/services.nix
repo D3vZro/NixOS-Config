@@ -1,6 +1,11 @@
 { pkgs, ... }:
 
 {
+  virtualisation.docker.rootless = {
+    enable = true;
+    setSocketVariable = true;
+  };
+
   networking = {
     networkmanager.enable = true;
 

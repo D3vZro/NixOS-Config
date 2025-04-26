@@ -79,7 +79,7 @@
     ripgrep
     tealdeer
     tree
-    vesktop
+    ungoogled-chromium
     viewnior
     waypipe
     wget

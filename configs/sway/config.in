@@ -1,10 +1,42 @@
 # Import
 include ./keybindings
-include ./io
+include ./workspace
+
+# General input settings
+input * {
+    xkb_layout "de"
+    xkb_options "eurosign:e, caps:escape"
+}
+
+input type:keyboard {
+    repeat_delay 200
+    repeat_rate 30
+    xkb_numlock enabled
+}
+
+input type:touchpad {
+    tap enabled
+    drag enabled
+    drag_lock enabled
+    dwt enabled
+    accel_profile flat
+    scroll_factor 1.5
+}
+
+input type:pointer {
+  scroll_factor 2
+  accel_profile flat
+}
+
+seat * {
+    hide_cursor 2000
+    pointer_constraint enable
+}
 
 # Background
 output * bg $WALLPAPER/wallpaper.png fill
 
+# Idle behaviour
 exec swayidle -w \
          timeout 180 'swaylock -f' \
          timeout 360 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
@@ -17,9 +49,9 @@ focus_follows_mouse no
 
 assign [class="Code"]         number 1
 assign [class="Spotify"]      number 6
-assign [class="Todoist"]      number 5
 assign [app_id="thunderbird"] number 7
 assign [class="vesktop"]      number 8
+assign [class="discord"]      number 8
 
 # Styling
 default_border pixel 3
@@ -27,6 +59,16 @@ smart_borders on
 smart_gaps off
 gaps outer 5
 gaps inner 5
+
+for_window [all] inhibit_idle fullscreen
+
+for_window [app_id="Alacritty"] opacity set 0.98
+
+for_window [class="Code"] opacity set 0.98
+
+for_window [class="discord"] opacity set 0.98
+
+for_window [class="Spotify"] opacity set 0.98
 
 # Window class          Border  Background Text    Indicator
 client.focused          #5E81AC #5E81AC    #E5E9F0 #5E81AC
@@ -49,5 +91,7 @@ exec_always --no-startup-id workstyle &> /tmp/workstyle.log
 exec_always mako
 
 exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
+
+workspace 1
 
 include @sysconfdir@/sway/config.d/*

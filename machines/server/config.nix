@@ -72,11 +72,12 @@
     nix-output-monitor
   ];
 
-  # Remote builder
+  # Remote building
   nix.distributedBuilds = true;
   nix.settings.builders-use-substitutes = true;
 
   # Create a fitting key in /root/.ssh first!
+  # Add the public key to the builder
   # nix.buildMachines = [
   #   {
   #     hostName = "nix-notebook";

@@ -5,6 +5,10 @@
     kernelPackages = pkgs.linuxPackages_latest;
     initrd.systemd.dbus.enable = true;
 
+    kernelModules = [
+      "hid-playstation"
+    ];
+
     loader = {
       efi.canTouchEfiVariables = true;
       timeout = 0;
@@ -39,4 +43,11 @@
     memoryPercent = 25;
   };
 
+  services.udev.extraRules = ''
+    # Disable DS5 touchpad acting as mouse
+    ATTRS{name}=="Sony Interactive Entertainment DualSense Wireless Controller Touchpad", ENV{LIBINPUT_IGNORE_DEVICE}="1"
+
+    # Disable DS4 touchpad acting as mouse
+    ATTRS{name}=="Sony Computer Entertainment Wireless Controller Touchpad", ENV{LIBINPUT_IGNORE_DEVICE}="1"
+  '';
 }

@@ -13,7 +13,9 @@
   # Desktop
   home-manager.users.${username} = {
     home.sessionVariables.WLR_RENDERER = lib.mkForce "vulkan";
-    xdg.configFile."sway/io".source = lib.mkForce ../../configs/sway/ioDesktop.in;
+    xdg.configFile."sway/workspace" = {
+      source = ../../configs/sway/desktop/workspace.in;
+    };
   };
 
   # Hardware

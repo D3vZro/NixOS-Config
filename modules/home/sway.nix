@@ -35,7 +35,6 @@
   xdg.configFile = {
     "sway/config".source = lib.mkForce ../../configs/sway/config.in;
     "sway/keybindings".source = ../../configs/sway/keybindings.in;
-    "sway/io".source = ../../configs/sway/ioNotebook.in;
     "waybar/config".source = ../../configs/waybar/config.json;
     "waybar/modules".source = ../../configs/waybar/modules.json;
     "waybar/style.css".source = ../../configs/waybar/style.css;

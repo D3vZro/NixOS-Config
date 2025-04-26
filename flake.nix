@@ -45,6 +45,7 @@
       zen-browser,
     }:
     let
+      # Grab inputs
       username = "zero";
       system = "x86_64-linux";
       pkgs = import nixpkgs { inherit system; };
@@ -55,13 +56,20 @@
       # Enable central username across files via top-level attribute set
       specialArgs = {
         inherit username;
+
+        # Used in ./modules/packages.nix
         inherit zenBrowser;
+
+        # Used in ./machines/notebook/config.nix
         inherit nixos-hardware;
       };
 
       # Basic NixOS config for desktop systems
       base = [
+        # Used by comma
         nix-index-database.nixosModules.nix-index
+
+        # Files
         ./modules/system.nix
         ./modules/packages.nix
 

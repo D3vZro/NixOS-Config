@@ -1,0 +1,44 @@
+# vim: filetype=swayconfig
+
+set $mod Mod4
+
+bindsym {
+    $mod+p output HDMI-A-1 toggle
+}
+
+output DP-1 {
+  position 0 0
+  mode 1920x1080@165Hz
+  adaptive_sync on
+  allow_tearing yes
+  render_bit_depth 10
+  subpixel rgb
+}
+
+output HDMI-A-1 {
+  position 1920 0
+  subpixel rgb
+}
+
+workspace {
+  number 1
+  number 2
+  number 3
+  number 4
+  number 5
+  number 6
+  number 8
+  number 9
+}
+
+workspace {
+  1 output DP-1
+  2 output DP-1
+  3 output DP-1
+  4 output DP-1
+  5 output DP-1
+  6 output DP-1
+  8 output DP-1
+  9 output HDMI-A-1
+}
+
